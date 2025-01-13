@@ -1,4 +1,30 @@
 #include "push_swap.h"
+
+
+t_list *pop_from_b(t_list **stack_a)
+{
+    t_list *top = *stack_a;
+    if (!top)
+        return NULL;
+    *stack_a = (*stack_a)->next;
+    top->next = NULL;
+    return top;
+}
+
+void push_to_a(t_list **stack_a, t_list *top)
+{
+    if (top)
+    {
+        ft_lstadd_front(stack_a, top);
+        ft_printf("pa\n");
+    }
+}
+
+rebuild_list(t_list ** stack_a, t_list **stack_b)
+{
+  while (*stack_b)
+        push_to_stack_a(stack_a, pop_from_stack_b(stack_b));
+}
 void ft_free_array(char **arr)
 {
     int i = 0;
@@ -171,6 +197,7 @@ void recursive_sort(t_list **stack_a, t_list **stack_b, int len)
 void three_way_quick_sort(t_list *stack_a, t_list *stack_b, int len)
 {
     recursive_sort(&stack_a, &stack_b, len);
+    rebuild_list(&stack_a, &stack_b);
 }
 
 int main(int ac, char **av)
