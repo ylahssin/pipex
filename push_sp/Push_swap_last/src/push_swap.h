@@ -5,7 +5,24 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-
+enum Numbers 
+{ 
+  POSITIVE = 1, 
+  NEGATIVE = -1, 
+  ZERO = 0 
+};
+typedef struct cost
+{
+    int cost_a;
+    int cost_b;
+}t_cost;
+typedef struct s_number
+{
+  int less_number_position;
+  int big_number_position;
+  int big_num_cost;
+  int less_num;
+}t_number;
 typedef struct s_prev
 {
     int major;
